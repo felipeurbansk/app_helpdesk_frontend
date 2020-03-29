@@ -1,0 +1,8 @@
+[build]
+  command = "npm start"
+  publish="app_helpdesk_frontend/build"
+  base = "app_helpdesk_frontend"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
