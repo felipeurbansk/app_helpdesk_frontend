@@ -1,10 +1,14 @@
 import React from 'react';
 
-import './style.css';
+import './style.css'
+import Base from '../Base'
 
+export default function NewTicket() {
 
-export default function Dashboard() {
-    return(
-        <h1>Dashboard</h1>
+    return (
+        <Base>
+            <h1>Teste</h1>
+        </Base>
     );
+
 }

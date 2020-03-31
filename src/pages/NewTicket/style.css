@@ -1,0 +1,13 @@
+.container-new-ticket {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-new-ticket textarea {
+    height: 200px;
+}

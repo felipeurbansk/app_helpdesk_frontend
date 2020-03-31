@@ -13,6 +13,10 @@
     height: auto;
 }
 
+.component-login form {
+    padding: 0 10px;
+}
+
 .component-login form .link{
     display: flex;
     justify-content: space-between;

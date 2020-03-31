@@ -10,7 +10,7 @@
     max-width: 240px;
     min-width: 220px;
     background-color: #3ffc52;
-    padding: 10px 10px;
+    padding: 0 10px;
     color: #FFF;
     font-weight: bold;
 }
@@ -19,17 +19,11 @@
     width: 100%;
 }
 
-.container-dashboard .menu-header {
-    border: 1px solid #fff;
-    padding: 10px 10px;
-    border-radius: 8px;
-}
-
 .container-dashboard .menu-body {
     border: 1px solid #fff;
-    padding: 10px 10px;
+    padding: 0 10px;
     border-radius: 8px;
-    margin-top: 15px;
+    margin-top: 0;
 }
 
 .container-dashboard .menu-body h2 {

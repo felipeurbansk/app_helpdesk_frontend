@@ -46,14 +46,14 @@ export default function Login() {
                 <form onSubmit={hundleSubmit}>
                     <input
                         type="email"
-                        className="hd-input"
+                        className="input"
                         placeholder="E-mail"
                         value={email}
                         onChange = { e => {setEmail(e.target.value)}}
                     />
                     <input 
                         type="password"
-                        className="hd-input"
+                        className="input"
                         placeholder="Password"
                         value={password}
                         onChange = { e => {setPassword(e.target.value) }}
