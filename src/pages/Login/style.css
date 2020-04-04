@@ -25,7 +25,7 @@
 .component-login .component-link {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    padding: 0;
     align-items: center;
     justify-content: space-between;
 }
@@ -37,6 +37,7 @@
     color: #AAA;
     transition: color 0.5s;
 }
+
 
 .component-login .component-link .link:hover {
     color: #000;
