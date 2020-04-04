@@ -20,8 +20,7 @@ export default function Dashboard({children}) {
                         <h2>Menu</h2>
                         <ul>
                             <li><Link className="link" to="/dashboard" >Dashboard</Link></li>
-                            <li><Link className="link" to="/new-ticket" >Novo ticket</Link></li>
-                            <li>Visualizar tickets</li>
+                            <li><Link className="link" to="/newticket" >Novo ticket</Link></li>
                         </ul>
                     </div>
                 </section>
@@ -29,7 +28,7 @@ export default function Dashboard({children}) {
                     {children}
                 </section>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 }

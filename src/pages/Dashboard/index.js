@@ -1,25 +1,62 @@
 import React, {useState, useEffect} from 'react';
-import { Table, Button, Dropdown } from 'react-bootstrap'
+import {useHistory} from 'react-router-dom';
+import { Table, Dropdown } from 'react-bootstrap';
 
 import api from '../../services/api';
 
-import './style.css'
-import Base from '../Base'
+import './style.css';
+import Base from '../Base';
 
 export default function NewTicket() {
 
     const [tickets, setTickets] = useState([]);
+    const history = useHistory();
 
     useEffect( () => {
+
+        if ( !localStorage.getItem('user_token') ) history.push('/')
+
         api.get('ticket', {
             headers: {
                 user_id: localStorage.getItem('user_id'),
-                authorization: localStorage.getItem('user_token')
+                user_token: localStorage.getItem('user_token')
             }
         }).then(response => {
             setTickets(response.data)
         })
-    })
+    }, [])
+
+    function hundleView( id ) {
+        
+        // if ( !id ) return false;
+
+        // const ticket = api.post('/ticket', {
+        //     headers: {
+        //         user_id
+        //     }
+        // })
+
+    }
+
+    async function hundleDelete( id ) {
+        
+        if (!id) return false;
+
+        await api.delete('ticket',{
+            headers: {
+                user_id: localStorage.getItem('user_id'),
+                user_token: localStorage.getItem('user_token')
+            },
+            data: {
+                id: id
+            }
+        }).then( response => {
+            setTickets(tickets.filter( ticket =>  ticket.id !== id ))
+        }).catch( err => {
+            console.log(err)
+        });
+
+    }
 
     return (
         <Base>
@@ -31,7 +68,7 @@ export default function NewTicket() {
                             <th>#</th>
                             <th>Assunto</th>
                             <th>Opções</th>
-                        </tr>
+                        </tr>   
                     </thead>
                     <tbody>
                         {
@@ -45,8 +82,8 @@ export default function NewTicket() {
                                                 Opções
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu>
-                                                <Dropdown.Item href="#/action-1">Responder</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">Excluir</Dropdown.Item>
+                                                <Dropdown.Item onClick={() => { hundleView(ticket.id) }}>Visualizar</Dropdown.Item>
+                                                <Dropdown.Item onClick={() => { hundleDelete(ticket.id) }}>Excluir</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
                                     </td>

@@ -1,15 +1,33 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom';
 
 import './style.css'
 import Base from '../Base'
+
+import api from '../../services/api';
 
 export default function NewTicket() {
 
     const [subject, setSubject] = useState('');
     const [description, setDescription] = useState('');
 
-    function hundleSubmit(e){
+    const history = useHistory();
+
+    async function hundleSubmit(e){
         e.preventDefault();
+
+        await api.post('/ticket', {subject, description}, {
+            headers: {
+                user_id: localStorage.getItem('user_id'),
+                user_token: localStorage.getItem('user_token')
+            }
+        }).then(response => {
+            history.push('/dashboard')
+        }).catch(err => {
+            alert('Erro: ' + err)
+        })
+        
+
     }
 
     return (

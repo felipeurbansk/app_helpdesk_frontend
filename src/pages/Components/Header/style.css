@@ -22,3 +22,13 @@
     margin-right: 50px;
     font-weight: bold;
 }
+
+.container-header .header-menu .link {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.container-header .header-menu .link:hover {
+    color:#444
+}
